@@ -22,7 +22,9 @@ public class UserServiceHashMap implements UserService {
 
     @Override
     public User findById(String id) {
-
+        if(uHashMap.containsKey(id)){
+            return uHashMap.get(id);
+        }
         return null;
     }
 
@@ -33,11 +35,14 @@ public class UserServiceHashMap implements UserService {
 
     @Override
     public void deleteById(String id) {
-
+        if(uHashMap.containsKey(id)) {
+            uHashMap.remove(id);
+        }
     }
 
     @Override
     public User update(User user, String userId) {
+
         return null;
     }
 }
