@@ -4,6 +4,7 @@ import co.escuelaing.edu.co.entities.User;
 import co.escuelaing.edu.co.service.UserService;
 import co.escuelaing.edu.co.entities.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -30,7 +31,7 @@ public class UserServiceHashMap implements UserService {
 
     @Override
     public List<User> getAll() {
-        return null;
+        return new ArrayList<>(uHashMap.values());
     }
 
     @Override
@@ -42,7 +43,8 @@ public class UserServiceHashMap implements UserService {
 
     @Override
     public User update(User user, String userId) {
-
-        return null;
+        user.setId(userId);
+        uHashMap.put(userId, user);
+        return user;
     }
 }
